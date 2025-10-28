@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jasa Pembuatan Website Profesional & Cepat | RanSite</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Inter from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoIF2RgFjD57t4iBwe2J+sQj4pZw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script>
+      // GANTI ANGKA DI SINI (1–5) UNTUK PILIHAN WARNA
+      const selectedTheme = 2;
+
+      const themes = {
+        1: {
+          // OPSI 1 – Hijau Tosca + Kuning Emas
+          "primary-color": "#00897B",
+          "secondary-color": "#FFC107",
+          "third-color": "#0f1724",
+          "brand-teal": "#0ea5a4",
+          "soft-bg": "#e8f6f3", // lembut hijau muda
+        },
+        2: {
+          // OPSI 2 – Biru Navy + Orange Coral
+          "primary-color": "#1E3A8A",
+          "secondary-color": "#F97316",
+          "third-color": "#0F172A",
+          "brand-teal": "#2563EB",
+          "soft-bg": "#edf4ff", // biru muda lembut
+        },
+        3: {
+          // OPSI 3 – Biru Gelap + Orange Coral
+          "primary-color": "#0E7490",
+          "secondary-color": "#FB923C",
+          "third-color": "#164E63",
+          "brand-teal": "#06B6D4",
+          "soft-bg": "#e6f7fb", // cyan muda segar
+        },
+        4: {
+          // OPSI 4 – Hijau Forest + Soft Gold
+          "primary-color": "#14532D",
+          "secondary-color": "#D6B85A",
+          "third-color": "#1B1B1B",
+          "brand-teal": "#047857",
+          "soft-bg": "#f4f6ef", // krem kehijauan lembut
+        },
+        5: {
+          // OPSI 5 – Ungu Gelap + Kuning Gold
+          "primary-color": "#581C87",
+          "secondary-color": "#EAB308",
+          "third-color": "#3B0764",
+          "brand-teal": "#9333EA",
+          "soft-bg": "#f7f2ff", // ungu muda lembut
+        },
+      };
+
+      const selectedColors = themes[selectedTheme];
+
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: selectedColors,
+          },
+        },
+      };
+
+      // Terapkan ke root agar bisa dipakai di CSS biasa
+      const root = document.documentElement;
+      Object.entries(selectedColors).forEach(([key, value]) => {
+        root.style.setProperty(`--${key}`, value);
+      });
+    </script>
+
+    <style>
+      /* Mengatur font default Inter */
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth; /* Modern CSS property for smooth scrolling (fallback) */
+      }
+      /* Hero / mockup layered styles */
+      .hero-mockup {
+        position: relative;
+        width: 100%;
+        max-width: 520px;
+        transition: all 0.4s ease;
+      }
+
+      .hero-mockup img {
+        border-radius: 14px;
+        box-shadow: 0 20px 50px rgba(2, 6, 23, 0.45);
+        transition: transform 0.6s ease, box-shadow 0.6s ease, top 0.6s ease,
+          right 0.6s ease;
+      }
+
+      /* --- posisi awal (bertumpuk tapi kelihatan semua) --- */
+      .hero-mockup .layer {
+        position: absolute;
+        right: -18px;
+        opacity: 1;
+      }
+
+      .hero-mockup .layer.l1 {
+        top: -60px;
+        transform: rotate(-10deg) scale(0.96);
+        right: 20px;
+        z-index: 1;
+      }
+
+      .hero-mockup .layer.l2 {
+        top: 90px;
+        transform: rotate(12deg) scale(0.98);
+        right: 25px;
+        z-index: 2;
+      }
+
+      .hero-mockup img:last-child {
+        position: relative;
+        right: 20px;
+        z-index: 3;
+      }
+
+      /* --- saat dihover (berbaris rapi atas, tengah, bawah — lebih renggang) --- */
+      .hero-mockup:hover .layer.l1 {
+        top: -100px;
+        right: 50px;
+        transform: rotate(0deg) scale(1) translateY(0);
+      }
+
+      .hero-mockup:hover .layer.l2 {
+        top: 30px;
+        right: 30px;
+        transform: rotate(0deg) scale(1) translateY(0);
+      }
+
+      .hero-mockup:hover img:last-child {
+        top: -20px;
+        right: 10px;
+        transform: translateY(180px);
+      }
+
+      /* Style untuk FAQ */
+      .faq-item summary {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      /* Header fixed offset for anchor scrolling */
+      :target:before {
+        content: "";
+        display: block;
+        height: 88px;
+        margin-top: -88px;
+      }
+
+      header {
+        width: 100%;
+        max-width: 100vw; /* Pastikan tidak melampaui lebar layar */
+        overflow: hidden; /* Hindari elemen yang meluap */
+      }
+
+      /* Swiper Navigation Buttons */
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: var(--primary-color);
+        font-weight: bold;
+        transform: scale(0.9);
+        transition: all 0.3s ease;
+        width: 45px;
+        height: 45px;
+        top: 40%;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background-color: var(--transparent);
+        color: var(--secondary-color);
+        transform: scale(1);
+      }
+
+      /* Gunakan ikon yang tebal */
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 22px;
+        font-weight: 900;
+      }
+      .portfolioSwiper {
+        /* overflow: visible !important;  */
+        padding-bottom: 60px;
+      }
+
+      /* RESPONSIVE TABLET */
+      @media (max-width: 1024px) {
+        .hero-mockup {
+          pointer-events: none;
+          max-width: 420px;
+          transform: scale(0.95);
+        }
+
+        /* tampil seperti posisi hover, tapi tanpa efek */
+        .hero-mockup .layer.l1 {
+          position: absolute;
+          top: -70px;
+          right: 20px;
+          transform: rotate(0deg) scale(1);
+          z-index: 1;
+        }
+
+        .hero-mockup .layer.l2 {
+          position: absolute;
+          top: -5px;
+          right: 0px;
+          transform: rotate(0deg) scale(1);
+          z-index: 2;
+        }
+
+        .hero-mockup img:last-child {
+          position: relative;
+          top: -120px;
+          right: -20px;
+          transform: translateY(180px);
+          z-index: 3;
+        }
+
+        /* hilangkan hover (karena tidak dibutuhkan di mobile/tablet) */
+        .hero-mockup:hover .layer.l1,
+        .hero-mockup:hover .layer.l2,
+        .hero-mockup:hover img:last-child {
+          transform: none;
+        }
+      }
+
+      /* RESPONSIVE MOBILE */
+      @media (max-width: 640px) {
+        .hero-mockup {
+          pointer-events: none;
+          max-width: 320px;
+          transform: scale(0.95);
+        }
+
+        .hero-mockup .layer.l1 {
+          top: -60px;
+          right: 20px;
+        }
+
+        .hero-mockup .layer.l2 {
+          top: -5px;
+          right: 0px;
+        }
+
+        .hero-mockup img:last-child {
+          top: -100px;
+          right: -20px;
+          transform: translateY(150px);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-soft-bg text-gray-800">
+    <!-- Header / Navbar (fixed + glass) -->
+    <header
+      class="fixed w-full max-w-full top-0 z-[60] bg-white/60 backdrop-blur-md shadow-sm transition overflow-hidden"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <a href="#home" class="flex items-center space-x-3 scroll-link">
+          <img
+            src="images/logo.png"
+            alt="Logo RanSite"
+            class="w-10 h-10 object-contain rounded-lg"
+          />
+          <span class="font-extrabold text-2xl">RanSite</span>
+        </a>
+
+        <nav
+          class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-700"
+        >
+          <a
+            href="#keunggulan"
+            class="hover:text-primary-color transition scroll-link"
+            >Keunggulan</a
+          >
+          <a
+            href="#layanan"
+            class="hover:text-primary-color transition scroll-link"
+            >Layanan</a
+          >
+          <a
+            href="#portfolio"
+            class="hover:text-primary-color transition scroll-link"
+            >Portfolio</a
+          >
+          <a
+            href="#pricelist"
+            class="hover:text-primary-color transition scroll-link"
+            >Harga</a
+          >
+        </nav>
+
+        <div class="flex items-center space-x-3">
+          <a
+            href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20pembuatan%20website%20bisnis%20saya.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
+            target="_blank"
+            class="hidden sm:inline-block bg-secondary-color text-gray-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-amber-500 transition shadow-sm"
+          >
+            Hubungi Kami
+          </a>
+
+          <button
+            id="mobileBtn"
+            class="md:hidden text-third-color text-2xl p-2 relative z-50 transition-transform duration-300"
+          >
+            <i class="fas fa-bars" id="menuIcon"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 bg-white/70 backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-6 text-lg font-semibold text-gray-800 transition-all duration-500 ease-in-out opacity-0 pointer-events-none transform -translate-y-full"
+    >
+      <a
+        href="#keunggulan"
+        class="scroll-link hover:text-primary-color transition-all duration-300 hover:scale-110"
+        >Keunggulan</a
+      >
+      <a
+        href="#layanan"
+        class="scroll-link hover:text-primary-color transition-all duration-300 hover:scale-110"
+        >Layanan</a
+      >
+      <a
+        href="#portfolio"
+        class="scroll-link hover:text-primary-color transition-all duration-300 hover:scale-110"
+        >Portfolio</a
+      >
+      <a
+        href="#pricelist"
+        class="scroll-link hover:text-primary-color transition-all duration-300 hover:scale-110"
+        >Harga</a
+      >
+      <a
+        href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20pembuatan%20website%20bisnis%20saya.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
+        target="_blank"
+        class="bg-secondary-color text-gray-900 px-5 py-2 rounded-full shadow-md hover:bg-amber-500 transition-all duration-300 hover:scale-105"
+      >
+        Hubungi Kami
+      </a>
+    </div>
+
+    <!-- 1. Hero Section (updated: full-screen gradient + layered mockups) -->
+    <section
+      id="home"
+      class="min-h-screen pt-28 pb-20 bg-gradient-to-br from-primary-color to-brand-teal text-white"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+      >
+        <!-- Left: Headline -->
+        <div class="space-y-6 text-center lg:text-left pt-10">
+          <span
+            class="inline-block bg-secondary-color text-third-color text-[11px] sm:text-xs font-semibold uppercase tracking-wide px-3 sm:px-5 py-1 rounded-full shadow-md whitespace-nowrap"
+          >
+            Jasa Pembuatan Website Profesional Terpercaya
+          </span>
+
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight"
+          >
+            Solusi Website Profesional untuk <br />
+            <span class="text-secondary-color typewriter-text"></span
+            ><span class="text-secondary-color animate-pulse">|</span>
+          </h1>
+
+          <p class="text-lg md:text-xl text-white/90 max-w-xl mx-auto">
+            Kami bantu Anda memiliki website profesional dengan harga bersahabat
+            dan hasil yang maksimal.
+            <span class="text-secondary-color font-semibold"
+              >Onlinekan website Anda pada pencarian Google sekarang!</span
+            >
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 justify-center lg:justify-start"
+          >
+            <a
+              href="#pricelist"
+              class="inline-block bg-white text-primary-color font-bold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition scroll-link"
+              >Lihat Paket</a
+            >
+            <a
+              href="https://wa.me/6281234567890"
+              target="_blank"
+              class="inline-block border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 transition flex items-center justify-center"
+              >Konsultasi Gratis</a
+            >
+          </div>
+          <div
+            class="mt-6 flex items-center justify-center lg:justify-start gap-6 text-sm"
+          >
+            <div class="glass-card flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-md bg-white/10 flex items-center justify-center text-white text-lg"
+              >
+                <i class="fas fa-wallet"></i>
+              </div>
+              <div>
+                <div class="text-xs text-white/90">Mulai dari</div>
+                <div class="font-semibold">Rp 850.000</div>
+              </div>
+            </div>
+
+            <div class="glass-card flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-md bg-white/10 flex items-center justify-center text-white text-lg"
+              >
+                <i class="fas fa-globe"></i>
+              </div>
+              <div>
+                <div class="text-xs text-white/90">Kami Melayani</div>
+                <div class="font-semibold">Berbagai Jenis Website</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Layered mockups (desktop right column) -->
+        <div class="flex justify-center lg:justify-end mt-8 lg:mt-0">
+          <div class="hero-mockup">
+            <img
+              src="images/portfolio3.JPG"
+              alt="mock1"
+              class="block w-[520px] h-auto layer l1"
+            />
+            <img
+              src="images/portfolio1.JPG"
+              alt="mock2"
+              class="block w-[520px] h-auto layer l2"
+            />
+            <img
+              src="images/portfolio2.JPG"
+              alt="mock3"
+              class="block w-[520px] h-auto rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mengapa Harus Pilih RanSite -->
+    <section id="keunggulan" class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900"
+        >
+          Mengapa harus memilih
+          <span class="text-primary-color">RanSite</span>?
+        </h2>
+
+        <p class="text-lg text-center text-gray-600 mb-16 max-w-3xl mx-auto">
+          Kami hadir untuk membantu bisnis Anda tampil profesional di dunia
+          digital. Dengan layanan lengkap, desain modern, dan dukungan teknis
+          yang andal. RanSite adalah solusi pembuatan website yang cepat, mudah,
+          dan hasilnya nyata.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Card Template -->
+          <div
+            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+          >
+            <div class="text-center mb-4">
+              <i
+                class="fas fa-envelope fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+              ></i>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
+            >
+              Gratis Email Bisnis
+            </h3>
+            <p class="text-gray-600 text-sm text-center">
+              Tampil lebih profesional dengan email bisnis menggunakan nama
+              domain Anda sendiri, tanpa biaya tambahan.
+            </p>
+          </div>
+
+          <div
+            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+          >
+            <div class="text-center mb-4">
+              <i
+                class="fas fa-mobile-alt fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+              ></i>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
+            >
+              Desain Responsif untuk Mobile
+            </h3>
+            <p class="text-gray-600 text-sm text-center">
+              Website tampil optimal di semua perangkat dari smartphone, tablet,
+              hingga desktop, tanpa membuat tampilan atau kecepatan menurun.
+            </p>
+          </div>
+
+          <div
+            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+          >
+            <div class="text-center mb-4">
+              <i
+                class="fas fa-server fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+              ></i>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
+            >
+              Hosting, Domain, & SSL Gratis
+            </h3>
+            <p class="text-gray-600 text-sm text-center">
+              Gratis domain profesional (.com/.id/ lainnya), dengan hosting
+              terpercaya, dan sertifikat SSL agar website Anda aman dan
+              terpercaya.
+            </p>
+          </div>
+
+          <div
+            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+          >
+            <div class="text-center mb-4">
+              <i
+                class="fas fa-chart-line fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+              ></i>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
+            >
+              Optimasi SEO untuk Google
+            </h3>
+            <p class="text-gray-600 text-sm text-center">
+              Struktur dan konten website diatur agar mudah ditemukan di hasil
+              pencarian Google dan membantu menarik lebih banyak pengunjung.
+            </p>
+          </div>
+
+          <div
+            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+          >
+            <div class="text-center mb-4">
+              <i
+                class="fas fa-rocket fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+              ></i>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
+            >
+              Fast Loading Website
+            </h3>
+            <p class="text-gray-600 text-sm text-center">
+              Performa website dioptimalkan agar ringan dan cepat diakses, untuk
+              meningkatkan pengalaman pengguna dan nilai SEO.
+            </p>
+          </div>
+
+          <div
+            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+          >
+            <div class="text-center mb-4">
+              <i
+                class="fas fa-tools fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+              ></i>
+            </div>
+            <h3
+              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
+            >
+              Bantuan Maintenance
+            </h3>
+            <p class="text-gray-600 text-sm text-center">
+              Kami siap membantu dalam perawatan website, pembaruan konten, dan
+              perbaikan error/bug, agar website selalu dalam performa terbaik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Jenis Layanan (Section with Icons) -->
+    <section id="layanan" class="py-16 md:py-24 bg-soft-bg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Solusi Website
+            <span class="text-secondary-color">Sesuai Kebutuhan</span> Bisnis
+            Anda
+          </h2>
+
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            RanSite menghadirkan layanan pembuatan website yang disesuaikan
+            dengan kebutuhan Anda, konsultasikan bersama kami untuk mewujudkan
+            website sesuai tujuan Anda.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Layanan 1: Landing Page -->
+          <div
+            class="group bg-white p-6 rounded-xl shadow-xl border-b-4 border-secondary-color transition hover:border-primary-color"
+          >
+            <i
+              class="fas fa-bullseye fa-3x text-secondary-color mb-4 transition duration-300 group-hover:text-primary-color"
+            ></i>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Landing Page</h3>
+            <p class="text-gray-600 mb-4">
+              Website satu halaman yang fokus pada promosi, pengenalan produk,
+              dan mengubah pengunjung menjadi pelanggan.
+            </p>
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Desain modern & responsif
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Optimasi konversi & SEO
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Gratis domain & hosting 1 tahun
+              </li>
+            </ul>
+          </div>
+
+          <!-- Layanan 2: Company Profile -->
+          <div
+            class="group bg-white p-6 rounded-xl shadow-xl border-b-4 border-secondary-color transition hover:border-primary-color"
+          >
+            <i
+              class="fas fa-building fa-3x text-secondary-color mb-4 transition duration-300 group-hover:text-primary-color"
+            ></i>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+              Company Profile
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Buat perusahaan Anda menjadi lebih profesional dengan website
+              informatif, elegan, dan mudah diakses.
+            </p>
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Halaman lengkap (About, Services, Contact, dll.)
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Tampilan profesional & kustom
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Optimasi performa & keamanan
+              </li>
+            </ul>
+          </div>
+
+          <!-- Layanan 3: E-Commerce -->
+          <div
+            class="group bg-white p-6 rounded-xl shadow-xl border-b-4 border-secondary-color transition hover:border-primary-color"
+          >
+            <i
+              class="fas fa-shopping-cart fa-3x text-secondary-color mb-4 transition duration-300 group-hover:text-primary-color"
+            ></i>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">E-Commerce</h3>
+            <p class="text-gray-600 mb-4">
+              Solusi toko online lengkap dengan sistem pembayaran otomatis dan
+              dashboard pengelolaan produk.
+            </p>
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Fitur keranjang & checkout
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Integrasi payment gateway
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Manajemen produk & stok
+              </li>
+            </ul>
+          </div>
+
+          <!-- Layanan 4: Custom Website -->
+          <div
+            class="group bg-white p-6 rounded-xl shadow-xl border-b-4 border-secondary-color transition hover:border-primary-color"
+          >
+            <i
+              class="fas fa-code fa-3x text-secondary-color mb-4 transition duration-300 group-hover:text-primary-color"
+            ></i>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+              Custom Website
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Kami melayani pembuatan berbagai jenis website sesuai kebutuhan
+              Anda.
+            </p>
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Blog & Website Informasi
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Portfolio & Personal Branding
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Sistem Internal Perusahaan
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Dashboard Admin
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-primary-color mr-2"></i>
+                Dan Lainnya
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Portfolio -->
+    <section id="portfolio" class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Beberapa <span class="text-primary-color">Portofolio</span> Klien
+            RanSite
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Temukan hasil karya RanSite yang telah membantu berbagai customer di
+            dunia digital. Setiap website kami dirancang dengan perhatian penuh
+            terhadap detail dan hasil.
+          </p>
+        </div>
+
+        <!-- Swiper container -->
+        <div class="swiper portfolioSwiper">
+          <div class="swiper-wrapper">
+            <!-- Portfolio Card 1 -->
+            <div class="swiper-slide">
+              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
+                <img
+                  src="images/portfolio1.JPG"
+                  alt="Contoh Website Toko Online"
+                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
+                />
+                <div class="p-6">
+                  <span
+                    class="text-xs font-semibold text-secondary-color uppercase"
+                    >E-COMMERCE</span
+                  >
+                  <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">
+                    Toko Online Jude Bags
+                  </h3>
+                  <p class="text-gray-600 text-sm mb-4">
+                    Website toko online modern dengan fitur keranjang, checkout,
+                    dan integrasi payment gateway untuk kemudahan transaksi
+                    pelanggan.
+                  </p>
+                  <a
+                    href="#"
+                    class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
+                  >
+                    Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Portfolio Card 2 -->
+            <div class="swiper-slide">
+              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
+                <img
+                  src="images/portfolio2.JPG"
+                  alt="Contoh Website Company Profile"
+                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
+                />
+                <div class="p-6">
+                  <span
+                    class="text-xs font-semibold text-secondary-color uppercase"
+                    >LANDING PAGE</span
+                  >
+                  <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">
+                    Landing Page Toko Jus
+                  </h3>
+                  <p class="text-gray-600 text-sm mb-4">
+                    Website landing page dengan halaman tunggal untuk pengenalan
+                    dan penjualan jus buah, dilengkapi desain segar dan
+                    interaktif.
+                  </p>
+                  <a
+                    href="#"
+                    class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
+                  >
+                    Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Portfolio Card 3 -->
+            <div class="swiper-slide">
+              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
+                <img
+                  src="images/portfolio3.JPG"
+                  alt="Contoh Website Landing Page"
+                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
+                />
+                <div class="p-6">
+                  <span
+                    class="text-xs font-semibold text-secondary-color uppercase"
+                    >LANDING PAGE</span
+                  >
+                  <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">
+                    Website Pengenalan Kampus
+                  </h3>
+                  <p class="text-gray-600 text-sm mb-4">
+                    Halaman tunggal yang berfokus pada pengenalan profil kampus
+                    secara menarik dan informatif untuk meningkatkan daya tarik
+                    calon mahasiswa.
+                  </p>
+                  <a
+                    href="#"
+                    class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
+                  >
+                    Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Portfolio Card 4 -->
+            <div class="swiper-slide">
+              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
+                <img
+                  src="images/portfolio4.JPG"
+                  alt="Contoh Website Landing Page"
+                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
+                />
+                <div class="p-6">
+                  <span
+                    class="text-xs font-semibold text-secondary-color uppercase"
+                    >COMPANY PROFILE</span
+                  >
+                  <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">
+                    Catering Website
+                  </h3>
+                  <p class="text-gray-600 text-sm mb-4">
+                    Website catering yang menampilkan menu, layanan pemesanan,
+                    dan profil usaha untuk meningkatkan kepercayaan pelanggan.
+                  </p>
+                  <a
+                    href="#"
+                    class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
+                  >
+                    Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Card 5 -->
+            <div class="swiper-slide">
+              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
+                <img
+                  src="images/portfolio5.JPG"
+                  alt="Contoh Website Landing Page"
+                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
+                />
+                <div class="p-6">
+                  <span
+                    class="text-xs font-semibold text-secondary-color uppercase"
+                    >COMPANY PROFILE</span
+                  >
+                  <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">
+                    Education Company Profile
+                  </h3>
+                  <p class="text-gray-600 text-sm mb-4">
+                    Website profil perusahaan di bidang event pendidikanuntuk
+                    menampilkan visi, layanan, dan keunggulan perusahaan.
+                  </p>
+                  <a
+                    href="#"
+                    class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
+                  >
+                    Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Portfolio Card 6 -->
+            <div class="swiper-slide">
+              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
+                <img
+                  src="images/portfolio6.JPG"
+                  alt="Contoh Website Landing Page"
+                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
+                />
+                <div class="p-6">
+                  <span
+                    class="text-xs font-semibold text-secondary-color uppercase"
+                    >COMPANY PROFILE</span
+                  >
+                  <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">
+                    Innovation Competition Website
+                  </h3>
+                  <p class="text-gray-600 text-sm mb-4">
+                    Website event kompetisi pendidikan yang berfokus pada detail
+                    acara, jadwal kegiatan, dan publikasi hasil lomba dengan
+                    tampilan modern.
+                  </p>
+                  <a
+                    href="#"
+                    class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
+                  >
+                    Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigasi -->
+          <div class="swiper-button-next text-secondary-color"></div>
+          <div class="swiper-button-prev text-secondary-color"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Pricelist Ringkas (Premium Look) -->
+    <section id="pricelist" class="py-16 md:py-24 bg-primary-color text-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <span class="text-secondary-color">Harga Paket</span> Jasa Pembuatan
+            Website Terjangkau
+          </h2>
+          <p class="text-lg text-gray-200 max-w-3xl mx-auto">
+            Investasi kecil website profesional untuk mendukung pertumbuhan
+            bisnis Anda. Pilih paket terbaik Anda di RanSite dan wujudkan
+            website impian sesuai kebutuhan bisnis.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-5">
+          <!-- Card 1: Starter / Personal Website -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-2xl text-gray-900 flex flex-col h-full transform hover:scale-105 transition duration-300"
+          >
+            <span class="text-sm font-semibold text-secondary-color mb-2"
+              >Paling Hemat</span
+            >
+            <h3 class="text-2xl font-bold mb-4">
+              Landing Page / <br />
+              Personal Website
+            </h3>
+            <p class="text-5xl font-extrabold text-primary-color mb-2">
+              Rp 700<span class="text-xl">.000</span>
+            </p>
+            <p class="text-sm text-gray-500 mb-6">Pengerjaan: 5 - 7 Hari</p>
+            <div class="space-y-3 flex-grow border-t pt-4">
+              <p class="font-medium text-sm text-primary-color uppercase">
+                Fitur Utama:
+              </p>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>1 Halaman
+                  Utama
+                </li>
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Desain
+                  Responsif & Cepat
+                </li>
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Formulir
+                  Kontak Dasar
+                </li>
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Platform:
+                  WordPress (Statis)
+                </li>
+              </ul>
+            </div>
+            <a
+              href="#contact"
+              class="mt-8 block w-full text-center bg-secondary-color text-gray-900 font-bold py-3 rounded-full hover:bg-amber-500 transition shadow-lg scroll-link"
+              >Pesan Sekarang</a
+            >
+          </div>
+
+          <!-- Card 2: Business / Company Profile -->
+          <div
+            class="bg-primary-color p-8 rounded-xl shadow-2xl text-white border-4 border-secondary-color flex flex-col h-full transform scale-100 hover:scale-105 transition duration-300"
+          >
+            <span class="text-sm font-semibold text-secondary-color mb-2"
+              >Untuk Perusahaan</span
+            >
+            <h3 class="text-2xl font-bold mb-4 text-secondary-color">
+              Business /<br />
+              Company Profile
+            </h3>
+            <p class="text-4xl font-extrabold text-white mb-2">
+              Rp 1.650<span class="text-xl">.000</span>
+            </p>
+            <p class="text-sm text-gray-300 mb-6">Pengerjaan: 1 - 2 Minggu</p>
+            <div class="space-y-3 flex-grow border-t pt-4">
+              <p class="font-medium text-sm text-secondary-color uppercase">
+                Fitur Utama:
+              </p>
+              <ul class="text-sm text-gray-200 space-y-2">
+                <li>
+                  <i class="fas fa-check text-secondary-color mr-2"></i>Hingga 5
+                  Halaman Utama
+                </li>
+                <li>
+                  <i class="fas fa-check text-secondary-color mr-2"></i>Tampilan
+                  Profesional & Navigasi Lengkap
+                </li>
+                <li>
+                  <i class="fas fa-check text-secondary-color mr-2"></i>Free
+                  Hosting & Domain 1 Tahun
+                </li>
+                <li>
+                  <i class="fas fa-check text-secondary-color mr-2"></i
+                  >Platform: WordPress (Semi-Dinamis)
+                </li>
+              </ul>
+            </div>
+            <a
+              href="#contact"
+              class="mt-8 block w-full text-center bg-white text-primary-color font-bold py-3 rounded-full hover:bg-gray-100 transition shadow-lg scroll-link"
+              >Pesan Sekarang</a
+            >
+          </div>
+
+          <!-- Card 3: E-Commerce / Toko Online -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-2xl text-gray-900 flex flex-col h-full transform hover:scale-105 transition duration-300"
+          >
+            <span class="text-sm font-semibold text-secondary-color mb-2"
+              >Untuk UMKM</span
+            >
+            <h3 class="text-2xl font-bold mb-4">
+              E-Commerce /<br />
+              Toko Online
+            </h3>
+            <p class="text-4xl font-extrabold text-primary-color mb-2">
+              Rp 2.300<span class="text-xl">.000</span>
+            </p>
+            <p class="text-sm text-gray-500 mb-6">Pengerjaan: 3 - 4 Minggu</p>
+            <div class="space-y-3 flex-grow border-t pt-4">
+              <p class="font-medium text-sm text-primary-color uppercase">
+                Fitur Utama:
+              </p>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Keranjang
+                  Belanja & Checkout
+                </li>
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Integrasi
+                  Payment Gateway
+                </li>
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Manajemen
+                  Produk & Pesanan
+                </li>
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Platform:
+                  WooCommerce
+                </li>
+              </ul>
+            </div>
+            <a
+              href="#contact"
+              class="mt-8 block w-full text-center bg-secondary-color text-gray-900 font-bold py-3 rounded-full hover:bg-amber-500 transition shadow-lg scroll-link"
+              >Pesan Sekarang</a
+            >
+          </div>
+
+          <!-- Card 4: Custom / Enterprise Website -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-2xl text-gray-900 flex flex-col h-full transform hover:scale-105 transition duration-300"
+          >
+            <span class="text-sm font-semibold text-secondary-color mb-2"
+              >Skala Bisnis Besar</span
+            >
+            <h3 class="text-2xl font-bold mb-4">
+              Custom /<br />
+              Enterprise Website
+            </h3>
+            <p class="text-2xl font-extrabold text-primary-color">Mulai</p>
+            <p class="text-4xl font-extrabold text-primary-color mb-2">
+              Rp 2<span class="text-xl">.500.000</span>
+            </p>
+            <p class="text-sm text-gray-500 mb-6">Pengerjaan: Mulai 1 Bulan</p>
+            <div class="space-y-3 flex-grow border-t pt-4">
+              <p class="font-medium text-sm text-primary-color uppercase">
+                Fitur Utama:
+              </p>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Integrasi
+                  Payment Gateway / Fitur Kustom
+                </li>
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Full Custom
+                  System (Laravel)
+                </li>
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Optimasi SEO
+                  Lanjutan
+                </li>
+                <li>
+                  <i class="fas fa-check text-green-500 mr-2"></i>Platform:
+                  Laravel / Tailor-Made
+                </li>
+              </ul>
+            </div>
+            <a
+              href="#contact"
+              class="mt-8 block w-full text-center bg-secondary-color text-gray-900 font-bold py-3 rounded-full hover:bg-amber-500 transition shadow-lg scroll-link"
+              >Konsultasi Gratis</a
+            >
+          </div>
+        </div>
+
+        <p class="text-center text-sm text-gray-300 mt-12">
+          *Kami juga menerima permintaan khusus sesuai kebutuhan Anda, jadi
+          tidak harus mengikuti paket yang tersedia.
+        </p>
+      </div>
+    </section>
+
+    <!-- 5. Proses Pemesanan Website (Timeline Style) -->
+    <section class="py-24 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
+          <span class="text-primary-color">5 Langkah</span> Mudah Miliki Website
+          Profesional
+        </h2>
+
+        <p class="text-gray-600 mb-16 max-w-2xl mx-auto">
+          Dari konsultasi hingga website siap online prosesnya cepat, fleksibel,
+          dan transparan bersama
+          <span class="font-semibold text-primary-color">RanSite</span>.
+        </p>
+
+        <div class="relative">
+          <!-- Garis timeline -->
+          <div
+            class="absolute top-8 left-0 w-full h-[3px] bg-gray-200 z-0 md:block hidden"
+          ></div>
+
+          <!-- Container Step -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-6 relative z-10"
+          >
+            <!-- Step 1 -->
+            <div
+              class="flex flex-col items-center text-center group transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-xl bg-primary-color text-white text-2xl shadow-md mb-6 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:ring-4 group-hover:ring-primary-color/30"
+              >
+                <i class="fas fa-comments"></i>
+              </div>
+              <h3 class="font-semibold text-lg">1. Konsultasi</h3>
+              <p class="text-gray-600 text-sm mt-2">
+                Ceritakan website yang Anda inginkan, kami siap membantu dengan
+                solusi terbaik dan menyesuaikan dengan kebutuhan Anda.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div
+              class="flex flex-col items-center text-center group transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-xl bg-secondary-color text-third-color text-2xl shadow-md mb-6 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:ring-4 group-hover:ring-secondary-color/30"
+              >
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <h3 class="font-semibold text-lg">2. Pemilihan Template</h3>
+              <p class="text-gray-600 text-sm mt-2">
+                Setelah kesepakatan bersama, kami kirimkan pilihan template yang
+                sesuai dengan ide dan karakter brand Anda.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div
+              class="flex flex-col items-center text-center group transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-xl bg-third-color text-white text-2xl shadow-md mb-6 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:ring-4 group-hover:ring-third-color/30"
+              >
+                <i class="fas fa-file-upload"></i>
+              </div>
+              <h3 class="font-semibold text-lg">3. Kirim Konten</h3>
+              <p class="text-gray-600 text-sm mt-2">
+                Kami akan memberikan Sheets untuk dilengkapi data seperti nama
+                bisnis, logo, gambar, dan kontak sesuai dengan perusahaan Anda.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div
+              class="flex flex-col items-center text-center group transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-xl bg-primary-color text-white text-2xl shadow-md mb-6 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:ring-4 group-hover:ring-primary-color/30"
+              >
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3 class="font-semibold text-lg">4. Pembuatan Website</h3>
+              <p class="text-gray-600 text-sm mt-2">
+                Tim kami mulai mengerjakan website sesuai konten dan desain
+                pilihan Anda. Progres bisa Anda pantau secara transparan.
+              </p>
+            </div>
+
+            <!-- Step 5 -->
+            <div
+              class="flex flex-col items-center text-center group transition-all duration-300"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-xl bg-secondary-color text-third-color text-2xl shadow-md mb-6 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:ring-4 group-hover:ring-secondary-color/30"
+              >
+                <i class="fas fa-rocket"></i>
+              </div>
+              <h3 class="font-semibold text-lg">5. Publishing</h3>
+              <p class="text-gray-600 text-sm mt-2">
+                Sebelum Publish, kami lakukan beberapa pertemuan dan revisi.
+                Setelah semua siap, website akan kami publish dan siap
+                digunakan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Testimonial & FAQ -->
+    <section class="py-16 md:py-24 bg-soft-bg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Testimonial Section -->
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+              Apa Kata Mereka Tentang RanSite?
+            </h2>
+            <p class="text-lg text-gray-600 mb-10">
+              Kepuasan klien adalah prioritas utama kami.
+            </p>
+
+            <!-- Testimonial Card 1 -->
+            <div
+              class="bg-white p-6 rounded-xl shadow-xl mb-6 border-l-4 border-secondary-color"
+            >
+              <i class="fas fa-quote-left text-secondary-color mb-3"></i>
+              <p class="text-gray-700 italic mb-4">
+                "Pengerjaan sangat cepat dan hasilnya melebihi ekspektasi.
+                Website profil perusahaan kami terlihat sangat modern dan
+                profesional. Timnya juga responsif!"
+              </p>
+              <div class="font-semibold text-sm text-gray-900">
+                Bapak Rian H.
+                <p class="text-xs font-normal text-primary-color">
+                  CEO, Digital Kreatif Indonesia
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonial Card 2 -->
+            <div
+              class="bg-white p-6 rounded-xl shadow-xl border-l-4 border-secondary-color"
+            >
+              <i class="fas fa-quote-left text-secondary-color mb-3"></i>
+              <p class="text-gray-700 italic mb-4">
+                "Website Toko Online kami kini berjalan mulus, integrasi
+                pembayarannya tidak ada masalah. Penjualan kami langsung
+                meningkat setelah peluncuran."
+              </p>
+              <div class="font-semibold text-sm text-gray-900">
+                Ibu Santi P.
+                <p class="text-xs font-normal text-primary-color">
+                  Owner, SanT-Shirt
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Section -->
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+              Pertanyaan yang Sering Diajukan
+            </h2>
+            <p class="text-lg text-gray-600 mb-10">
+              Temukan jawaban cepat atas pertanyaan Anda di sini.
+            </p>
+
+            <div class="bg-white rounded-xl shadow-xl divide-y divide-gray-200">
+              <!-- FAQ Item 1 -->
+              <details class="faq-item p-4">
+                <summary
+                  class="font-semibold text-gray-800 cursor-pointer hover:text-primary-color transition"
+                >
+                  Apakah harga sudah termasuk domain dan hosting?
+                  <i class="fas fa-chevron-down text-primary-color text-sm"></i>
+                </summary>
+                <p class="mt-2 text-sm text-gray-600 pl-4">
+                  Ya, semua paket harga kami sudah termasuk domain (.com, .id,
+                  atau lainnya) dan hosting (shared) gratis selama 1 tahun
+                  pertama.
+                </p>
+              </details>
+              <!-- FAQ Item 2 -->
+              <details class="faq-item p-4">
+                <summary
+                  class="font-semibold text-gray-800 cursor-pointer hover:text-primary-color transition"
+                >
+                  Berapa lama proses pengerjaan website?
+                  <i class="fas fa-chevron-down text-primary-color text-sm"></i>
+                </summary>
+                <p class="mt-2 text-sm text-gray-600 pl-4">
+                  Tergantung paketnya. Landing Page sekitar 1 minggu. Website
+                  Company Profile Standar 2-3 minggu. Toko Online/Custom Dynamic
+                  mulai dari 1 bulan.
+                </p>
+              </details>
+              <!-- FAQ Item 3 -->
+              <details class="faq-item p-4">
+                <summary
+                  class="font-semibold text-gray-800 cursor-pointer hover:text-primary-color transition"
+                >
+                  Apakah saya bisa meminta revisi?
+                  <i class="fas fa-chevron-down text-primary-color text-sm"></i>
+                </summary>
+                <p class="mt-2 text-sm text-gray-600 pl-4">
+                  Tentu saja. Kami menyediakan slot revisi desain dan konten,
+                  biasanya 1-2 kali revisi utama hingga Anda puas sebelum
+                  website diluncurkan.
+                </p>
+              </details>
+              <!-- FAQ Item 4 -->
+              <details class="faq-item p-4">
+                <summary
+                  class="font-semibold text-gray-800 cursor-pointer hover:text-primary-color transition"
+                >
+                  Platform apa yang Anda gunakan untuk membuat website?
+                  <i class="fas fa-chevron-down text-primary-color text-sm"></i>
+                </summary>
+                <p class="mt-2 text-sm text-gray-600 pl-4">
+                  Kami menggunakan WordPress (dengan atau tanpa WooCommerce)
+                  untuk website standar dan Laravel (PHP Framework) untuk
+                  website yang membutuhkan sistem dinamis kustom.
+                </p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 py-12">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">
+          Siap Membangun Kehadiran Digital yang Kuat?
+        </h2>
+        <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+          RanSite siap membantu Anda. Dapatkan konsultasi gratis dan penawaran
+          terbaik hari ini.
+        </p>
+        <a
+          href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20pembuatan%20website%20bisnis%20saya.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
+          target="_blank"
+          class="inline-block bg-secondary-color text-gray-900 text-xl font-bold px-8 py-3 rounded-full shadow-xl hover:bg-secondary-color/90 transition transform hover:scale-105 duration-300"
+        >
+          <i class="fab fa-whatsapp mr-2"></i> Hubungi Kami Sekarang
+        </a>
+
+        <p class="text-gray-500 text-sm mt-12">
+          &copy; 2025 RanSite.com. Hak Cipta Dilindungi.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript untuk Smooth Scrolling -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Dapatkan semua tautan dengan kelas 'scroll-link'
+        const smoothScrollLinks = document.querySelectorAll(".scroll-link");
+
+        smoothScrollLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            // Mencegah perilaku default (melompat langsung)
+            e.preventDefault();
+
+            // Dapatkan ID target (misalnya, dari "#keunggulan" ambil "keunggulan")
+            const targetId = link.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+              // Gunakan metode scrollIntoView dengan behavior: 'smooth'
+              targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start", // Posisikan di bagian atas
+              });
+            }
+          });
+        });
+      });
+
+      // Mobile Menu Toggle
+      const mobileBtn = document.getElementById("mobileBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuIcon = document.getElementById("menuIcon");
+      let isOpen = false;
+
+      mobileBtn.addEventListener("click", () => {
+        isOpen = !isOpen;
+
+        if (isOpen) {
+          // OPEN MENU
+          mobileMenu.classList.remove(
+            "opacity-0",
+            "pointer-events-none",
+            "-translate-y-full"
+          );
+          mobileMenu.classList.add("opacity-100", "translate-y-0");
+
+          // Ubah ikon jadi X
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        } else {
+          // CLOSE MENU
+          mobileMenu.classList.remove("opacity-100", "translate-y-0");
+          mobileMenu.classList.add(
+            "opacity-0",
+            "pointer-events-none",
+            "-translate-y-full"
+          );
+
+          // Balik ke ikon bars
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        }
+      });
+
+      // Close menu saat klik link
+      mobileMenu.querySelectorAll(".scroll-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          isOpen = false;
+          mobileMenu.classList.remove("opacity-100", "translate-y-0");
+          mobileMenu.classList.add(
+            "opacity-0",
+            "pointer-events-none",
+            "-translate-y-full"
+          );
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        });
+      });
+
+      // Close when clicking a link
+      mobileMenu.querySelectorAll(".scroll-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          isOpen = false;
+          mobileMenu.classList.remove("opacity-100", "translate-y-0");
+          mobileMenu.classList.add(
+            "opacity-0",
+            "pointer-events-none",
+            "-translate-y-full"
+          );
+        });
+      });
+
+      //Slide Protfolio
+      const swiper = new Swiper(".portfolioSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        centeredSlides: false,
+        grabCursor: true,
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      <!-- Script Typewriter -->
+      const texts = ["Bisnis Anda", "Brand Anda", "Perusahaan Anda"];
+      let speed = 100;
+      const textElements = document.querySelector(".typewriter-text");
+
+      let textIndex = 0;
+      let charcterIndex = 0;
+
+      function typeWriter() {
+        if (charcterIndex < texts[textIndex].length) {
+          textElements.innerHTML += texts[textIndex].charAt(charcterIndex);
+          charcterIndex++;
+          setTimeout(typeWriter, speed);
+        } else {
+          setTimeout(eraseText, 2000);
+        }
+      }
+
+      function eraseText() {
+        if (textElements.innerHTML.length > 0) {
+          textElements.innerHTML = textElements.innerHTML.slice(0, -1);
+          setTimeout(eraseText, 50);
+        } else {
+          textIndex = (textIndex + 1) % texts.length;
+          charcterIndex = 0;
+          setTimeout(typeWriter, 500);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeWriter, 500);
+      });
+
+      // Hide Header on Scroll Down, Show on Scroll Up
+      let lastScrollTop = 0;
+      const header = document.querySelector("header");
+
+      window.addEventListener("scroll", () => {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scroll ke bawah → sembunyikan header
+          header.classList.add("-translate-y-full");
+          header.classList.add("shadow-none");
+        } else {
+          // Scroll ke atas → tampilkan header
+          header.classList.remove("-translate-y-full");
+          header.classList.add("shadow-sm");
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Hindari nilai negatif
+      });
+    </script>
+  </body>
+</html>
