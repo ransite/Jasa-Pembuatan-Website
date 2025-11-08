@@ -30,6 +30,12 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
     <script>
       // GANTI ANGKA DI SINI (1–5) UNTUK PILIHAN WARNA
       const selectedTheme = 2;
@@ -216,6 +222,26 @@
       .portfolioSwiper {
         /* overflow: visible !important;  */
         padding-bottom: 60px;
+      }
+
+      /* Portfolio Gambar AutoScroll */
+      .portfolio-scroll-img {
+        display: block;
+        width: 100%;
+        transform: translateY(0);
+        transition: transform 7s ease-in-out; /* default transition (scroll down) */
+      }
+
+      /* Saat hover: pelan-pelan scroll ke bawah */
+      .group:hover .portfolio-scroll-img {
+        transform: translateY(-85%);
+        transition-duration: 5s; /* lamanya scroll turun */
+      }
+
+      /* Saat hover dilepas: pelan-pelan kembali ke atas */
+      .group:not(:hover) .portfolio-scroll-img {
+        transform: translateY(0);
+        transition-duration: 2s; /* lamanya scroll balik */
       }
 
       /* RESPONSIVE TABLET */
@@ -420,7 +446,7 @@
               >Lihat Paket</a
             >
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20pembuatan%20website%20bisnis%20saya.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
               target="_blank"
               class="inline-block border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 transition flex items-center justify-center"
               >Konsultasi Gratis</a
@@ -482,283 +508,504 @@
       </div>
     </section>
 
-    <!-- Mengapa Harus Pilih RanSite -->
-    <section id="keunggulan" class="py-16 md:py-24 bg-white">
+    <section
+      id="keunggulan"
+      class="relative py-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+    >
+      <!-- Floating gradient blobs -->
+      <div
+        class="absolute -top-20 -left-20 w-72 h-72 bg-blue-200/40 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute -bottom-20 -right-20 w-72 h-72 bg-amber-200/40 rounded-full blur-3xl"
+      ></div>
       <div class="max-w-7xl mx-auto px-4">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900"
-        >
-          Mengapa harus memilih
-          <span class="text-primary-color">RanSite</span>?
-        </h2>
-
-        <p class="text-lg text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-          Kami hadir untuk membantu bisnis Anda tampil profesional di dunia
-          digital. Dengan layanan lengkap, desain modern, dan dukungan teknis
-          yang andal. RanSite adalah solusi pembuatan website yang cepat, mudah,
-          dan hasilnya nyata.
-        </p>
-
+        <!-- Title -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+            Mengapa harus memilih
+            <span class="text-secondary-color">RanSite</span>?
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Kami hadir untuk membantu bisnis Anda tampil profesional di dunia
+            digital. Dengan layanan lengkap, desain modern, dan dukungan teknis
+            yang andal. RanSite adalah solusi pembuatan website yang cepat,
+            mudah, dan hasilnya nyata.
+          </p>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Card Template -->
+          <!-- CARD TEMPLATE -->
           <div
-            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+            class="group bg-white/80 backdrop-blur-sm border-b-4 shadow-2xl border-secondary-color transition hover:border-primary-color p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="500"
           >
-            <div class="text-center mb-4">
+            <div class="flex justify-center mb-5">
               <i
-                class="fas fa-server fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+                class="fas fa-server fa-3x text-transparent bg-clip-text bg-gradient-to-r from-primary-color to-secondary-color group-hover:text-primary-color duration-300"
               ></i>
             </div>
-            <h3
-              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
-            >
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">
               Hosting, Domain, & SSL Gratis
             </h3>
-            <p class="text-gray-600 text-sm text-center">
+            <p class="text-gray-600 text-center text-sm">
               Gratis domain profesional (.com/.id/ lainnya), dengan hosting
               terpercaya, dan sertifikat SSL agar website Anda aman dan
-              terpercaya.
+              dipercaya.
             </p>
           </div>
+
           <div
-            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+            class="group bg-white/80 backdrop-blur-sm border-b-4 shadow-2xl border-secondary-color transition hover:border-primary-color p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="500"
           >
-            <div class="text-center mb-4">
+            <div class="flex justify-center mb-5">
               <i
-                class="fas fa-envelope fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+                class="fas fa-envelope fa-3x text-transparent bg-clip-text bg-gradient-to-r from-primary-color to-secondary-color group-hover:text-primary-color duration-300"
               ></i>
             </div>
-            <h3
-              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
-            >
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">
               Gratis Email Bisnis
             </h3>
-            <p class="text-gray-600 text-sm text-center">
+            <p class="text-gray-600 text-center text-sm">
               Tampil lebih profesional dengan email bisnis menggunakan nama
               domain Anda sendiri, tanpa biaya tambahan.
             </p>
           </div>
 
           <div
-            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+            class="group bg-white/80 backdrop-blur-sm border-b-4 shadow-2xl border-secondary-color transition hover:border-primary-color p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="500"
           >
-            <div class="text-center mb-4">
+            <div class="flex justify-center mb-5">
               <i
-                class="fas fa-mobile-alt fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+                class="fas fa-mobile-alt fa-3x text-transparent bg-clip-text bg-gradient-to-r from-primary-color to-secondary-color group-hover:text-primary-color duration-300"
               ></i>
             </div>
-            <h3
-              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
-            >
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">
               Desain Responsif untuk Mobile
             </h3>
-            <p class="text-gray-600 text-sm text-center">
+            <p class="text-gray-600 text-center text-sm">
               Website tampil optimal di semua perangkat dari smartphone, tablet,
-              hingga desktop, tanpa membuat tampilan atau kecepatan menurun.
+              hingga desktop.
             </p>
           </div>
 
           <div
-            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+            class="group bg-white/80 backdrop-blur-sm border-b-4 shadow-2xl border-secondary-color transition hover:border-primary-color p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="500"
           >
-            <div class="text-center mb-4">
+            <div class="flex justify-center mb-5">
               <i
-                class="fas fa-chart-line fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+                class="fas fa-chart-line fa-3x text-transparent bg-clip-text bg-gradient-to-r from-primary-color to-secondary-color group-hover:text-primary-color duration-300"
               ></i>
             </div>
-            <h3
-              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
-            >
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">
               Optimasi SEO untuk Google
             </h3>
-            <p class="text-gray-600 text-sm text-center">
-              Struktur dan konten website diatur agar mudah ditemukan di hasil
-              pencarian Google dan membantu menarik lebih banyak pengunjung.
+            <p class="text-gray-600 text-center text-sm">
+              Struktur website diatur agar mudah ditemukan di hasil pencarian
+              Google dan membantu menarik lebih banyak pengunjung.
             </p>
           </div>
 
           <div
-            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+            class="group bg-white/80 backdrop-blur-sm border-b-4 shadow-2xl border-secondary-color transition hover:border-primary-color p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="500"
           >
-            <div class="text-center mb-4">
+            <div class="flex justify-center mb-5">
               <i
-                class="fas fa-rocket fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+                class="fas fa-rocket fa-3x text-transparent bg-clip-text bg-gradient-to-r from-primary-color to-secondary-color group-hover:text-primary-color duration-300"
               ></i>
             </div>
-            <h3
-              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
-            >
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">
               Fast Loading Website
             </h3>
-            <p class="text-gray-600 text-sm text-center">
-              Performa website dioptimalkan agar ringan dan cepat diakses, untuk
-              meningkatkan pengalaman pengguna dan nilai SEO.
+            <p class="text-gray-600 text-center text-sm">
+              Performa website dioptimalkan agar ringan dan cepat diakses untuk
+              pengalaman pengguna terbaik.
             </p>
           </div>
 
           <div
-            class="group bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
+            class="group bg-white/80 backdrop-blur-sm border-b-4 shadow-2xl border-secondary-color transition hover:border-primary-color p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="500"
           >
-            <div class="text-center mb-4">
+            <div class="flex justify-center mb-5">
               <i
-                class="fas fa-tools fa-3x text-primary-color group-hover:text-secondary-color transition duration-300"
+                class="fas fa-tools fa-3x text-transparent bg-clip-text bg-gradient-to-r from-primary-color to-secondary-color group-hover:text-primary-color duration-300"
               ></i>
             </div>
-            <h3
-              class="text-xl font-bold mb-2 text-primary-color text-center group-hover:text-secondary-color transition duration-300"
-            >
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">
               Bantuan Maintenance
             </h3>
-            <p class="text-gray-600 text-sm text-center">
-              Kami siap membantu dalam perawatan website, pembaruan konten, dan
-              perbaikan error/bug, agar website selalu dalam performa terbaik.
+            <p class="text-gray-600 text-center text-sm">
+              Kami siap membantu pembaruan konten, perbaikan bug, dan
+              maintenance rutin agar website selalu optimal.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. Jenis Layanan (Section with Icons) -->
-    <section id="layanan" class="py-16 md:py-24 bg-soft-bg">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Solusi Website
-            <span class="text-secondary-color">Sesuai Kebutuhan</span> Bisnis
-            Anda
+    <!-- Why Website is Important Section -->
+    <section class="relative bg-primary-color text-white py-20 overflow-hidden">
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12"
+      >
+        <!-- Left Content -->
+        <div class="md:w-1/2 space-y-6" data-aos="fade-right">
+          <h2 class="text-3xl md:text-4xl font-bold leading-snug">
+            Mengapa <span class="text-secondary-color">Website</span> Itu
+            Penting?
           </h2>
 
+          <p class="text-lg text-gray-200 max-w-3xl mx-auto">
+            Website bukan hanya sekadar tampilan online, tetapi juga aset
+            penting dalam mengembangkan bisnis Anda. Dengan website profesional,
+            Anda dapat meningkatkan kepercayaan pelanggan, memperluas jangkauan,
+            dan membangun identitas yang kuat.
+            <br /><br />
+            Namun, manfaat website tidak berhenti di dunia bisnis saja, website
+            juga berperan besar dalam bidang edukasi, komunitas, personal
+            branding, hingga organisasi. Website menjadi media utama untuk
+            menampilkan informasi, mempromosikan karya, atau menawarkan layanan
+            dengan cara yang profesional dapat diakses kapan pun dan di mana
+            pun.
+          </p>
+          <a
+            href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20pembuatan%20website%20bisnis%20saya.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
+            class="inline-block mt-4 bg-white text-primary-color font-semibold px-8 py-3 rounded-full shadow-md hover:bg-amber-300 hover:text-gray-900 transition-all duration-300"
+          >
+            Buat Websitemu Sekarang
+          </a>
+        </div>
+
+        <!-- Right Image -->
+        <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+          <img
+            src="images/timportance_of_website.svg"
+            alt="Importance of Website Illustration"
+            class="w-full max-w-md drop-shadow-2xl"
+          />
+        </div>
+      </div>
+
+      <!-- Decorative Background Blur -->
+      <div
+        class="absolute -top-20 -left-32 w-96 h-96 bg-amber-200/30 rounded-full blur-[120px]"
+      ></div>
+      <div
+        class="absolute -bottom-20 -right-32 w-96 h-96 bg-blue-200/30 rounded-full blur-[120px]"
+      ></div>
+    </section>
+
+    <!-- Section Jenis Layanan -->
+    <section
+      id="layanan"
+      class="relative py-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+    >
+      <div
+        class="absolute -top-20 -left-20 w-72 h-72 bg-blue-200/40 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute -bottom-20 -right-20 w-72 h-72 bg-amber-200/40 rounded-full blur-3xl"
+      ></div>
+
+      <div class="relative max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+            Jenis <span class="text-secondary-color">Website</span> yang Kami
+            Tawarkan
+          </h2>
           <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            RanSite menghadirkan layanan pembuatan website yang disesuaikan
-            dengan kebutuhan Anda, konsultasikan bersama kami untuk mewujudkan
-            website sesuai tujuan Anda.
+            Pilih jenis website yang paling sesuai dengan kebutuhan bisnis,
+            institusi, atau acara Anda. RanSite siap membantu dari konsep hingga
+            hasil akhir yang profesional.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          <!-- Layanan 1: Landing Page -->
-          <div
-            class="group bg-white p-6 rounded-xl shadow-xl border-b-4 border-secondary-color transition hover:border-primary-color"
-          >
-            <i
-              class="fas fa-bullseye fa-3x text-secondary-color mb-4 transition duration-300 group-hover:text-primary-color"
-            ></i>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Landing Page</h3>
-            <p class="text-gray-600 mb-4">
-              Website satu halaman yang fokus pada promosi, pengenalan produk,
-              dan mengubah pengunjung menjadi pelanggan.
-            </p>
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Desain modern & responsif
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Optimasi konversi & SEO
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Gratis domain & hosting 1 tahun
-              </li>
-            </ul>
+        <div class="layananSwiper swiper relative pb-12">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-building fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Company Profile
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Tampilkan citra profesional perusahaan Anda secara elegan dan
+                  informatif.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="150"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-shopping-cart fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  E-Commerce
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Jual produk dengan mudah melalui website toko online yang
+                  lengkap dan aman.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-landmark fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Instansi
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Website resmi untuk lembaga pemerintahan dengan tampilan
+                  modern dan informatif.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="250"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-graduation-cap fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Education
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Tingkatkan kredibilitas lembaga pendidikan Anda dengan website
+                  modern dan informatif.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-calendar-alt fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Website Event
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Promosikan acara atau event Anda dengan desain interaktif dan
+                  profesional.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="350"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-users fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Website Komunitas
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Bangun jaringan komunitas online yang mudah diakses dan
+                  menarik.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-briefcase fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Portfolio
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Tampilkan karya dan prestasi Anda dengan desain personal yang
+                  elegan.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="450"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-hotel fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Penginapan
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Website reservasi yang mempermudah tamu dalam melakukan
+                  pemesanan online.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-newspaper fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Portal Berita
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Sajikan berita terkini dan konten informatif dengan tampilan
+                  dinamis, cepat, dan mudah dikelola.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="550"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-store fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Website UMKM
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Bantu bisnis lokal Anda tampil online dengan desain
+                  profesional yang mudah digunakan dan hemat biaya.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-heart fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Undangan
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Buat undangan digital yang elegan, interaktif, dan mudah
+                  dibagikan untuk momen spesial Anda.
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div
+                class="group bg-white/80 backdrop-blur-sm border border-gray-100 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 ease-out h-full flex flex-col items-center justify-start text-center"
+                data-aos="fade-up"
+                data-aos-delay="650"
+              >
+                <div
+                  class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-primary-color to-secondary-color text-white shadow-md mb-5"
+                >
+                  <i class="fas fa-code fa-lg"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Website Custom
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Solusi fleksibel sesuai kebutuhan dan ide unik Anda, desain &
+                  fitur dibuat khusus untuk bisnis Anda.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <!-- Layanan 2: Company Profile -->
-          <div
-            class="group bg-white p-6 rounded-xl shadow-xl border-b-4 border-secondary-color transition hover:border-primary-color"
-          >
-            <i
-              class="fas fa-building fa-3x text-secondary-color mb-4 transition duration-300 group-hover:text-primary-color"
-            ></i>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-              Company Profile
-            </h3>
-            <p class="text-gray-600 mb-4">
-              Buat perusahaan Anda menjadi lebih profesional dengan website
-              informatif, elegan, dan mudah diakses.
-            </p>
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Halaman lengkap (About, Services, Contact, dll.)
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Tampilan profesional & kustom
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Optimasi performa & keamanan
-              </li>
-            </ul>
-          </div>
+          <div class="swiper-pagination"></div>
 
-          <!-- Layanan 3: E-Commerce -->
           <div
-            class="group bg-white p-6 rounded-xl shadow-xl border-b-4 border-secondary-color transition hover:border-primary-color"
-          >
-            <i
-              class="fas fa-shopping-cart fa-3x text-secondary-color mb-4 transition duration-300 group-hover:text-primary-color"
-            ></i>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">E-Commerce</h3>
-            <p class="text-gray-600 mb-4">
-              Solusi toko online lengkap dengan sistem pembayaran otomatis dan
-              dashboard pengelolaan produk.
-            </p>
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Fitur keranjang & checkout
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Integrasi payment gateway
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Manajemen produk & stok
-              </li>
-            </ul>
-          </div>
-
-          <!-- Layanan 4: Custom Website -->
+            class="swiper-button-next text-primary-color hover:text-secondary-color"
+          ></div>
           <div
-            class="group bg-white p-6 rounded-xl shadow-xl border-b-4 border-secondary-color transition hover:border-primary-color"
+            class="swiper-button-prev text-primary-color hover:text-secondary-color"
+          ></div>
+        </div>
+        <p class="text-center text-sm text-gray-800 mt-8">
+          *Kami juga menerima permintaan website lainnya sesuai dengan kebutuhan
+          Anda. Hubungi kami untuk berdiskusi lebih lanjut.
+        </p>
+        <div class="mt-8 text-center">
+          <a
+            href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20pembuatan%20website%20bisnis%20saya.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
+            class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-primary-color to-secondary-color text-white rounded-full font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition"
           >
-            <i
-              class="fas fa-code fa-3x text-secondary-color mb-4 transition duration-300 group-hover:text-primary-color"
-            ></i>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-              Custom Website
-            </h3>
-            <p class="text-gray-600 mb-4">
-              Kami melayani pembuatan berbagai jenis website sesuai kebutuhan
-              Anda.
-            </p>
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Blog & Website Informasi
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Portfolio & Personal Branding
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Sistem Internal Perusahaan
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Dashboard Admin
-              </li>
-              <li>
-                <i class="fas fa-check-circle text-primary-color mr-2"></i>
-                Dan Lainnya
-              </li>
-            </ul>
-          </div>
+            <i class="fas fa-comments text-white text-lg"></i>
+            Konsultasikan Sekarang
+          </a>
         </div>
       </div>
     </section>
@@ -783,17 +1030,23 @@
           <div class="swiper-wrapper">
             <!-- Portfolio Card 1 -->
             <div class="swiper-slide">
-              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
-                <img
-                  src="images/portfolio1.jpg"
-                  alt="Contoh Website Toko Online"
-                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
-                />
+              <div
+                class="bg-white rounded-xl shadow-xl overflow-hidden group relative border border-gray-100"
+              >
+                <div class="h-[230px] overflow-hidden relative">
+                  <img
+                    src="images/portfolio1.webp"
+                    alt="Contoh Website Toko Online"
+                    class="portfolio-scroll-img w-full"
+                  />
+                </div>
+
                 <div class="p-6">
                   <span
                     class="text-xs font-semibold text-secondary-color uppercase"
-                    >E-COMMERCE</span
                   >
+                    E-COMMERCE
+                  </span>
                   <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">
                     Toko Online Jude Bags
                   </h3>
@@ -804,6 +1057,7 @@
                   </p>
                   <a
                     href="https://akusila.com"
+                    target="_blank"
                     class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
                   >
                     Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -814,12 +1068,16 @@
 
             <!-- Portfolio Card 2 -->
             <div class="swiper-slide">
-              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
-                <img
-                  src="images/portfolio2.jpg"
-                  alt="Contoh Website Company Profile"
-                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
-                />
+              <div
+                class="bg-white rounded-xl shadow-xl overflow-hidden group relative border border-gray-100"
+              >
+                <div class="h-[230px] overflow-hidden relative">
+                  <img
+                    src="images/portfolio2.webp"
+                    alt="Contoh Website Company Profile"
+                    class="portfolio-scroll-img w-full transition-transform duration-[6s] ease-linear"
+                  />
+                </div>
                 <div class="p-6">
                   <span
                     class="text-xs font-semibold text-secondary-color uppercase"
@@ -835,6 +1093,7 @@
                   </p>
                   <a
                     href="https://danielrichardransun.github.io/ransunjuice/"
+                    target="_blank"
                     class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
                   >
                     Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -845,12 +1104,16 @@
 
             <!-- Portfolio Card 3 -->
             <div class="swiper-slide">
-              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
-                <img
-                  src="images/portfolio3.jpg"
-                  alt="Contoh Website Landing Page"
-                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
-                />
+              <div
+                class="bg-white rounded-xl shadow-xl overflow-hidden group relative border border-gray-100"
+              >
+                <div class="h-[230px] overflow-hidden relative">
+                  <img
+                    src="images/portfolio3.webp"
+                    alt="Contoh Website Landing Page"
+                    class="portfolio-scroll-img w-full transition-transform duration-[6s] ease-linear"
+                  />
+                </div>
                 <div class="p-6">
                   <span
                     class="text-xs font-semibold text-secondary-color uppercase"
@@ -866,6 +1129,7 @@
                   </p>
                   <a
                     href="https://danielrichardransun.github.io/KampusKita/"
+                    target="_blank"
                     class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
                   >
                     Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -876,12 +1140,16 @@
 
             <!-- Portfolio Card 4 -->
             <div class="swiper-slide">
-              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
-                <img
-                  src="images/portfolio4.jpg"
-                  alt="Contoh Website Landing Page"
-                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
-                />
+              <div
+                class="bg-white rounded-xl shadow-xl overflow-hidden group relative border border-gray-100"
+              >
+                <div class="h-[230px] overflow-hidden relative">
+                  <img
+                    src="images/portfolio4.webp"
+                    alt="Contoh Website Catering"
+                    class="portfolio-scroll-img w-full transition-transform duration-[6s] ease-linear"
+                  />
+                </div>
                 <div class="p-6">
                   <span
                     class="text-xs font-semibold text-secondary-color uppercase"
@@ -896,6 +1164,7 @@
                   </p>
                   <a
                     href="https://danielrichardransun.github.io/ransuncatering/"
+                    target="_blank"
                     class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
                   >
                     Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -903,14 +1172,19 @@
                 </div>
               </div>
             </div>
+
             <!-- Portfolio Card 5 -->
             <div class="swiper-slide">
-              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
-                <img
-                  src="images/portfolio5.jpg"
-                  alt="Contoh Website Landing Page"
-                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
-                />
+              <div
+                class="bg-white rounded-xl shadow-xl overflow-hidden group relative border border-gray-100"
+              >
+                <div class="h-[230px] overflow-hidden relative">
+                  <img
+                    src="images/portfolio5.webp"
+                    alt="Contoh Website Company Profile"
+                    class="portfolio-scroll-img w-full transition-transform duration-[6s] ease-linear"
+                  />
+                </div>
                 <div class="p-6">
                   <span
                     class="text-xs font-semibold text-secondary-color uppercase"
@@ -920,11 +1194,12 @@
                     Education Company Profile
                   </h3>
                   <p class="text-gray-600 text-sm mb-4">
-                    Website profil perusahaan di bidang event pendidikanuntuk
+                    Website profil perusahaan di bidang event pendidikan untuk
                     menampilkan visi, layanan, dan keunggulan perusahaan.
                   </p>
                   <a
                     href="https://krya.global"
+                    target="_blank"
                     class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
                   >
                     Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -935,12 +1210,16 @@
 
             <!-- Portfolio Card 6 -->
             <div class="swiper-slide">
-              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
-                <img
-                  src="images/portfolio6.jpg"
-                  alt="Contoh Website Landing Page"
-                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
-                />
+              <div
+                class="bg-white rounded-xl shadow-xl overflow-hidden group relative border border-gray-100"
+              >
+                <div class="h-[230px] overflow-hidden relative">
+                  <img
+                    src="images/portfolio6.webp"
+                    alt="Contoh Website Event"
+                    class="portfolio-scroll-img w-full transition-transform duration-[6s] ease-linear"
+                  />
+                </div>
                 <div class="p-6">
                   <span
                     class="text-xs font-semibold text-secondary-color uppercase"
@@ -956,6 +1235,7 @@
                   </p>
                   <a
                     href="https://icia.global"
+                    target="_blank"
                     class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
                   >
                     Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -963,14 +1243,19 @@
                 </div>
               </div>
             </div>
+
             <!-- Portfolio Card 7 -->
             <div class="swiper-slide">
-              <div class="bg-white rounded-xl shadow-xl overflow-hidden group">
-                <img
-                  src="images/portfolio7.jpg"
-                  alt="Contoh Website Portfolio Web Developer"
-                  class="w-full h-58 object-cover transition duration-300 group-hover:scale-105"
-                />
+              <div
+                class="bg-white rounded-xl shadow-xl overflow-hidden group relative border border-gray-100"
+              >
+                <div class="h-[230px] overflow-hidden relative">
+                  <img
+                    src="images/portfolio7.webp"
+                    alt="Contoh Website Portfolio Web Developer"
+                    class="portfolio-scroll-img w-full transition-transform duration-[6s] ease-linear"
+                  />
+                </div>
                 <div class="p-6">
                   <span
                     class="text-xs font-semibold text-secondary-color uppercase"
@@ -986,6 +1271,7 @@
                   </p>
                   <a
                     href="https://danielrichardransun.github.io/personalportofolio/"
+                    target="_blank"
                     class="text-primary-color font-semibold text-sm hover:text-secondary-color transition flex items-center"
                   >
                     Lihat Proyek <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -1008,7 +1294,8 @@
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold mb-4">
-            Harga Paket Jasa Pembuatan Website Terjangkau
+            <span class="text-secondary-color">Harga Paket</span> Jasa Pembuatan
+            Website Terjangkau
           </h2>
           <p class="text-lg text-gray-200 max-w-3xl mx-auto">
             Investasi kecil untuk website profesional yang mendukung pertumbuhan
@@ -1081,7 +1368,7 @@
               href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20dengan%20paket%20Landing%20Page%20%2F%20Personal%20Website.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
               target="_blank"
               rel="noopener noreferrer"
-              class="relative z-10 mt-8 block w-full text-center bg-secondary-color text-gray-900 font-bold py-3 rounded-full transition shadow-lg group-hover:bg-white group-hover:text-primary-color"
+              class="relative z-10 mt-8 block w-full text-center px-8 py-3 bg-gradient-to-r from-primary-color to-secondary-color text-white rounded-full font-semibold shadow-md transition-all duration-500 ease-in-out group-hover:bg-white group-hover:from-white group-hover:to-white group-hover:text-primary-color group-hover:shadow-lg group-hover:shadow-primary-color/20"
             >
               Pesan Sekarang
             </a>
@@ -1150,7 +1437,7 @@
               href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20dengan%20paket%20Business%20%2F%20Company%20Profile.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
               target="_blank"
               rel="noopener noreferrer"
-              class="relative z-10 mt-8 block w-full text-center bg-secondary-color text-gray-900 font-bold py-3 rounded-full transition shadow-lg group-hover:bg-white group-hover:text-primary-color"
+              class="relative z-10 mt-8 block w-full text-center px-8 py-3 bg-gradient-to-r from-primary-color to-secondary-color text-white rounded-full font-semibold shadow-md transition-all duration-500 ease-in-out group-hover:bg-white group-hover:from-white group-hover:to-white group-hover:text-primary-color group-hover:shadow-lg group-hover:shadow-primary-color/20"
             >
               Pesan Sekarang
             </a>
@@ -1219,7 +1506,7 @@
               href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20dengan%20paket%20E-Commerce%20%2F%20Toko%20Online.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
               target="_blank"
               rel="noopener noreferrer"
-              class="relative z-10 mt-8 block w-full text-center bg-secondary-color text-gray-900 font-bold py-3 rounded-full transition shadow-lg group-hover:bg-white group-hover:text-primary-color"
+              class="relative z-10 mt-8 block w-full text-center px-8 py-3 bg-gradient-to-r from-primary-color to-secondary-color text-white rounded-full font-semibold shadow-md transition-all duration-500 ease-in-out group-hover:bg-white group-hover:from-white group-hover:to-white group-hover:text-primary-color group-hover:shadow-lg group-hover:shadow-primary-color/20"
             >
               Pesan Sekarang
             </a>
@@ -1287,7 +1574,7 @@
               href="https://wa.me/628990899432?text=Halo%20RanSite%2C%20saya%20tertarik%20dengan%20paket%20Custom%20%2F%20Enterprise%20Website.%20Mohon%20informasi%20lebih%20lanjut%2C%20terima%20kasih."
               target="_blank"
               rel="noopener noreferrer"
-              class="relative z-10 mt-8 block w-full text-center bg-secondary-color text-gray-900 font-bold py-3 rounded-full transition shadow-lg group-hover:bg-white group-hover:text-primary-color"
+              class="relative z-10 mt-8 block w-full text-center px-8 py-3 bg-gradient-to-r from-primary-color to-secondary-color text-white rounded-full font-semibold shadow-md transition-all duration-500 ease-in-out group-hover:bg-white group-hover:from-white group-hover:to-white group-hover:text-primary-color group-hover:shadow-lg group-hover:shadow-primary-color/20"
             >
               Konsultasi Gratis
             </a>
@@ -1348,12 +1635,12 @@
               <div
                 class="w-16 h-16 flex items-center justify-center rounded-xl bg-secondary-color text-third-color text-2xl shadow-md mb-6 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:ring-4 group-hover:ring-secondary-color/30"
               >
-                <i class="fas fa-layer-group"></i>
+                <i class="fas fa-file-upload"></i>
               </div>
-              <h3 class="font-semibold text-lg">2. Pemilihan Template</h3>
+              <h3 class="font-semibold text-lg">2. Kirim Konten</h3>
               <p class="text-gray-600 text-sm mt-2">
-                Setelah kesepakatan bersama, kami kirimkan pilihan template yang
-                sesuai dengan ide dan karakter brand Anda.
+                Kami akan memberikan Sheets untuk dilengkapi data seperti nama
+                bisnis, logo, gambar, dan kontak sesuai dengan perusahaan Anda.
               </p>
             </div>
 
@@ -1364,12 +1651,12 @@
               <div
                 class="w-16 h-16 flex items-center justify-center rounded-xl bg-third-color text-white text-2xl shadow-md mb-6 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:ring-4 group-hover:ring-third-color/30"
               >
-                <i class="fas fa-file-upload"></i>
+                <i class="fas fa-layer-group"></i>
               </div>
-              <h3 class="font-semibold text-lg">3. Kirim Konten</h3>
+              <h3 class="font-semibold text-lg">3. Pemilihan Template</h3>
               <p class="text-gray-600 text-sm mt-2">
-                Kami akan memberikan Sheets untuk dilengkapi data seperti nama
-                bisnis, logo, gambar, dan kontak sesuai dengan perusahaan Anda.
+                Setelah kesepakatan bersama, kami kirimkan pilihan template yang
+                sesuai dengan ide dan karakter brand Anda.
               </p>
             </div>
 
@@ -1481,7 +1768,7 @@
                 <p class="mt-2 text-sm text-gray-600 pl-4">
                   Ya, semua paket harga kami sudah termasuk domain (.com, .id,
                   atau lainnya) dan hosting (shared) gratis selama 1 tahun
-                  pertama.
+                  pertama, Untuk perpanjang dikenakan biaya sesuai paket.
                 </p>
               </details>
               <!-- FAQ Item 2 -->
@@ -1664,6 +1951,36 @@
         },
       });
 
+      //Slider Layanan
+      const swiperLayanan = new Swiper(".layananSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        centeredSlides: false,
+        grabCursor: true,
+
+        // --- KONFIGURASI AUTOPLAY BARU ---
+        autoplay: {
+          delay: 1500, // Jeda 3 detik sebelum berpindah slide
+          disableOnInteraction: false, // Autoplay tidak akan berhenti setelah interaksi pengguna
+        },
+        // ----------------------------------
+
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
       <!-- Script Typewriter -->
       const texts = ["Bisnis Anda", "Brand Anda", "Perusahaan Anda"];
       let speed = 100;
@@ -1717,6 +2034,11 @@
 
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Hindari nilai negatif
       });
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
     </script>
   </body>
 </html>
