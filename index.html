@@ -50,6 +50,7 @@
     />
     <link rel="icon" type="image/png" href="images/logo-white.png" />
 
+    <!-- Untuk branding agar tidak terdeteksi typu "ransite->translate" -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -62,6 +63,21 @@
           "https://www.instagram.com/ransite.official/"
         ]
       }
+    </script>
+
+    <!-- Untuk Google analytic connection -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZNGFKNCX2E"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-ZNGFKNCX2E");
     </script>
 
     <!-- Tailwind CSS CDN -->
