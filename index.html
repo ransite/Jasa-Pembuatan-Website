@@ -30,6 +30,17 @@
   }
 </script>
 
+<script>
+  (function() {
+    if (!localStorage.getItem('user_lang')) {
+      const lang = navigator.language || navigator.userLanguage;
+      if (!lang.toLowerCase().includes('id')) {
+        window.location.href = "/en/"; 
+      }
+    }
+  })();
+</script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>
@@ -451,7 +462,7 @@
         <img src="https://flagcdn.com/w20/id.png" class="w-4 h-auto" alt="ID">
         <span class="text-[10px] font-bold">ID</span>
       </div>
-      <a href="en/index.html" class="flex items-center space-x-1.5 px-2.5 py-1 text-gray-400 hover:text-primary-color transition group">
+      <a href="en/" onclick="localStorage.setItem('user_lang', 'en')" class="flex items-center space-x-1.5 px-2.5 py-1 text-gray-400 hover:text-primary-color transition group">
         <img src="https://flagcdn.com/w20/gb.png" class="w-4 h-auto grayscale group-hover:grayscale-0 transition" alt="EN">
         <span class="text-[10px] font-bold">EN</span>
       </a>
@@ -480,7 +491,7 @@
       <span class="text-sm font-bold tracking-wide">Indonesia</span>
     </div>
     
-    <a href="en/index.html" class="flex flex-1 items-center justify-center space-x-3 py-3 text-gray-500 hover:text-primary-color transition-all">
+    <a href="en/" onclick="localStorage.setItem('user_lang', 'en')" class="flex flex-1 items-center justify-center space-x-3 py-3 text-gray-500 hover:text-primary-color transition-all">
       <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-auto rounded-sm grayscale opacity-70" alt="EN">
       <span class="text-sm font-semibold">English</span>
     </a>
