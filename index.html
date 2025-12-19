@@ -17,29 +17,29 @@
       })();
     </script> -->
 
-<!-- Set Bahasa Awal bedasarkan IP Lokasi Mereka -->
-<script>
-  if (!localStorage.getItem('language_set')) {
-    fetch('https://ipapi.co/json/')
-      .then(response => response.json())
-      .then(data => {
-        if (data.country_code !== 'ID') {
-          window.location.href = "/en/index.html";
-        }
-      });
-  }
-</script>
-
-<script>
-  (function() {
-    if (!localStorage.getItem('user_lang')) {
-      const lang = navigator.language || navigator.userLanguage;
-      if (!lang.toLowerCase().includes('id')) {
-        window.location.href = "/en/"; 
+    <!-- Set Bahasa Awal bedasarkan IP Lokasi Mereka -->
+    <!-- <script>
+      if (!localStorage.getItem("language_set")) {
+        fetch("https://ipapi.co/json/")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.country_code !== "ID") {
+              window.location.href = "/en/index.html";
+            }
+          });
       }
-    }
-  })();
-</script>
+    </script>
+
+    <script>
+      (function () {
+        if (!localStorage.getItem("user_lang")) {
+          const lang = navigator.language || navigator.userLanguage;
+          if (!lang.toLowerCase().includes("id")) {
+            window.location.href = "/en/";
+          }
+        }
+      })();
+    </script> -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -59,9 +59,9 @@
 
     <link rel="canonical" href="https://ransite.com/" />
 
-<link rel="alternate" hreflang="id" href="https://ransite.com/" />
-<link rel="alternate" hreflang="en" href="https://ransite.com/en/" />
-<link rel="alternate" hreflang="x-default" href="https://ransite.com/" />
+    <link rel="alternate" hreflang="id" href="https://ransite.com/" />
+    <link rel="alternate" hreflang="en" href="https://ransite.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://ransite.com/" />
 
     <!-- Open Graph -->
     <meta
@@ -85,8 +85,11 @@
       name="twitter:title"
       content="Jasa Pembuatan Website Profesional, Terjangkau, & Terpercaya | RanSite"
     />
-    <meta name="twitter:description" content="RanSite menyediakan jasa pembuatan
-    website profesional, terjangkau, & terpercaya. />
+    <meta
+      name="twitter:description"
+      content="RanSite menyediakan jasa pembuatan website profesional, terjangkau, & terpercaya."
+    />
+
     <meta
       name="twitter:image"
       content="https://ransite.com/images/preview.png"
@@ -441,62 +444,117 @@
     <header
       class="fixed w-full max-w-full top-0 z-[60] bg-white/60 backdrop-blur-md shadow-sm transition overflow-hidden"
     >
-      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-  <div class="flex-shrink-0">
-    <a href="#home" class="flex items-center space-x-3 scroll-link">
-      <img src="images/logo.png" alt="RanSite Logo" class="w-10 h-10 object-contain rounded-lg" />
-      <span class="font-extrabold text-2xl">RanSite</span>
-    </a>
-  </div>
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <div class="flex-shrink-0">
+          <a href="#home" class="flex items-center space-x-3 scroll-link">
+            <img
+              src="images/logo.png"
+              alt="RanSite Logo"
+              class="w-10 h-10 object-contain rounded-lg"
+            />
+            <span class="font-extrabold text-2xl">RanSite</span>
+          </a>
+        </div>
 
-  <div class="hidden md:flex items-center space-x-8">
-    <nav class="flex items-center space-x-6 text-sm font-medium text-gray-700">
-      <a href="#keunggulan" class="hover:text-primary-color transition">Keunggulan</a>
-      <a href="#layanan" class="hover:text-primary-color transition">Layanan</a>
-      <a href="#portfolio" class="hover:text-primary-color transition">Portfolio</a>
-      <a href="#pricelist" class="hover:text-primary-color transition">Harga</a>
-    </nav>
+        <div class="hidden md:flex items-center space-x-8">
+          <nav
+            class="flex items-center space-x-6 text-sm font-medium text-gray-700"
+          >
+            <a href="#keunggulan" class="hover:text-primary-color transition"
+              >Keunggulan</a
+            >
+            <a href="#layanan" class="hover:text-primary-color transition"
+              >Layanan</a
+            >
+            <a href="#portfolio" class="hover:text-primary-color transition"
+              >Portfolio</a
+            >
+            <a href="#pricelist" class="hover:text-primary-color transition"
+              >Harga</a
+            >
+          </nav>
 
-    <div class="flex items-center bg-gray-100/80 border border-gray-200 rounded-full p-1 shadow-inner">
-      <div class="flex items-center space-x-1.5 bg-primary-color text-white px-2.5 py-1 rounded-full shadow-sm">
-        <img src="https://flagcdn.com/w20/id.png" class="w-4 h-auto" alt="ID">
-        <span class="text-[10px] font-bold">ID</span>
+          <div
+            class="flex items-center bg-gray-100/80 border border-gray-200 rounded-full p-1 shadow-inner"
+          >
+            <div
+              class="flex items-center space-x-1.5 bg-primary-color text-white px-2.5 py-1 rounded-full shadow-sm"
+            >
+              <img
+                src="https://flagcdn.com/w20/id.png"
+                class="w-4 h-auto"
+                alt="ID"
+              />
+              <span class="text-[10px] font-bold">ID</span>
+            </div>
+            <a
+              href="en/"
+              onclick="localStorage.setItem('user_lang', 'en')"
+              class="flex items-center space-x-1.5 px-2.5 py-1 text-gray-400 hover:text-primary-color transition group"
+            >
+              <img
+                src="https://flagcdn.com/w20/gb.png"
+                class="w-4 h-auto grayscale group-hover:grayscale-0 transition"
+                alt="EN"
+              />
+              <span class="text-[10px] font-bold">EN</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <a
+            href="https://wa.me/628990899432?text=Hello%20RanSite%2C%20I'm%20interested%20in%20consulting%20about%20creating%20a%20website%20for%20my%20business.%20Please%20provide%20more%20information%2C%20thank%20you."
+            target="_blank"
+            class="hidden sm:inline-block bg-secondary-color text-gray-900 px-5 py-2 rounded-full text-sm font-bold hover:bg-amber-500 transition shadow-md"
+          >
+            Hubungi Kami
+          </a>
+          <button
+            id="mobileBtn"
+            class="md:hidden text-third-color text-2xl p-2"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
       </div>
-      <a href="en/" onclick="localStorage.setItem('user_lang', 'en')" class="flex items-center space-x-1.5 px-2.5 py-1 text-gray-400 hover:text-primary-color transition group">
-        <img src="https://flagcdn.com/w20/gb.png" class="w-4 h-auto grayscale group-hover:grayscale-0 transition" alt="EN">
-        <span class="text-[10px] font-bold">EN</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="flex items-center space-x-3">
-    <a href="https://wa.me/628990899432?text=Hello%20RanSite%2C%20I'm%20interested%20in%20consulting%20about%20creating%20a%20website%20for%20my%20business.%20Please%20provide%20more%20information%2C%20thank%20you." target="_blank" class="hidden sm:inline-block bg-secondary-color text-gray-900 px-5 py-2 rounded-full text-sm font-bold hover:bg-amber-500 transition shadow-md">
-      Hubungi Kami
-    </a>
-    <button id="mobileBtn" class="md:hidden text-third-color text-2xl p-2">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-</div>
     </header>
 
     <div
       id="mobileMenu"
       class="fixed inset-0 bg-white/70 backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-6 text-lg font-semibold text-gray-800 transition-all duration-500 ease-in-out opacity-0 pointer-events-none transform -translate-y-full"
     >
-    <div class="flex justify-center w-full px-6 mb-10">
-  <div class="flex items-center bg-gray-100/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-1.5 w-full max-w-[280px] shadow-sm">
-    <div class="flex flex-1 items-center justify-center space-x-3 bg-primary-color text-white py-3 rounded-xl shadow-md transition-all">
-      <img src="https://flagcdn.com/w40/id.png" class="w-6 h-auto rounded-sm" alt="ID">
-      <span class="text-sm font-bold tracking-wide">Indonesia</span>
-    </div>
-    
-    <a href="en/" onclick="localStorage.setItem('user_lang', 'en')" class="flex flex-1 items-center justify-center space-x-3 py-3 text-gray-500 hover:text-primary-color transition-all">
-      <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-auto rounded-sm grayscale opacity-70" alt="EN">
-      <span class="text-sm font-semibold">English</span>
-    </a>
-  </div>
-</div>
+      <div class="flex justify-center w-full px-6 mb-10">
+        <div
+          class="flex items-center bg-gray-100/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-1.5 w-full max-w-[280px] shadow-sm"
+        >
+          <div
+            class="flex flex-1 items-center justify-center space-x-3 bg-primary-color text-white py-3 rounded-xl shadow-md transition-all"
+          >
+            <img
+              src="https://flagcdn.com/w40/id.png"
+              class="w-6 h-auto rounded-sm"
+              alt="ID"
+            />
+            <span class="text-sm font-bold tracking-wide">Indonesia</span>
+          </div>
+
+          <a
+            href="en/"
+            onclick="localStorage.setItem('user_lang', 'en')"
+            class="flex flex-1 items-center justify-center space-x-3 py-3 text-gray-500 hover:text-primary-color transition-all"
+          >
+            <img
+              src="https://flagcdn.com/w40/gb.png"
+              class="w-6 h-auto rounded-sm grayscale opacity-70"
+              alt="EN"
+            />
+            <span class="text-sm font-semibold">English</span>
+          </a>
+        </div>
+      </div>
       <a
         href="#keunggulan"
         class="scroll-link hover:text-primary-color transition-all duration-300 hover:scale-110"
