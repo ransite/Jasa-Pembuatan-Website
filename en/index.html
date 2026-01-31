@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,9 +20,9 @@
 
     <link rel="canonical" href="https://ransite.com/en/" />
 
-<link rel="alternate" hreflang="id" href="https://ransite.com/" />
-<link rel="alternate" hreflang="en" href="https://ransite.com/en/" />
-<link rel="alternate" hreflang="x-default" href="https://ransite.com/" />
+    <link rel="alternate" hreflang="id" href="https://ransite.com/" />
+    <link rel="alternate" hreflang="en" href="https://ransite.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://ransite.com/" />
 
     <!-- Open Graph -->
     <meta
@@ -33,10 +33,7 @@
       property="og:description"
       content="Professional, Affordable, & Trusted Website Creation Services. Suitable for SMEs, businesses, and portfolios."
     />
-    <meta
-      property="og:image"
-      content="https://ransite.com/images/preview.png"
-    />
+    <meta property="og:image" content="https://ransite.com/Favicon-48.png" />
     <meta property="og:url" content="https://ransite.com/en" />
     <meta property="og:type" content="website" />
 
@@ -47,21 +44,18 @@
       content="Professional, Affordable, & Trusted Website Creation Services | RanSite"
     />
     <meta
-  name="twitter:description"
-  content="RanSite menyediakan jasa pembuatan website profesional, terjangkau, & terpercaya."
-/>
-    <meta
-      name="twitter:image"
-      content="https://ransite.com/images/preview.png"
+      name="twitter:description"
+      content="RanSite menyediakan jasa pembuatan website profesional, terjangkau, & terpercaya."
     />
+    <meta name="twitter:image" content="https://ransite.com/Favicon-48.png" />
 
     <!-- Website Icon -->
-    <link rel="icon" type="image/png" href="../images/logo-white.png" />
+    <link rel="icon" href="/Favicon-48.png" />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/Favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Favicon-48.png" />
+    <link rel="apple-touch-icon" href="/Favicon-48.png" />
 
     <!-- For branding to avoid typo detection "ransite->translate" -->
     <script type="application/ld+json">
@@ -70,8 +64,8 @@
         "@type": "Organization",
         "name": "RanSite",
         "url": "https://ransite.com/",
-        "logo": "https://ransite.com/images/logo-white.png",
-        "image": "https://ransite.com/images/preview.png",
+        "logo": "https://ransite.com/Favicon-48.png",
+        "image": "https://ransite.com/Favicon-48.png",
         "sameAs": [
           "https://web.facebook.com/profile.php?id=61584656229282",
           "https://www.instagram.com/ransite.official/"
@@ -205,7 +199,10 @@
       .hero-mockup img {
         border-radius: 14px;
         box-shadow: 0 20px 50px rgba(2, 6, 23, 0.45);
-        transition: transform 0.6s ease, box-shadow 0.6s ease, top 0.6s ease,
+        transition:
+          transform 0.6s ease,
+          box-shadow 0.6s ease,
+          top 0.6s ease,
           right 0.6s ease;
       }
 
@@ -404,62 +401,117 @@
     <header
       class="fixed w-full max-w-full top-0 z-[60] bg-white/60 backdrop-blur-md shadow-sm transition overflow-hidden"
     >
-      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-  <div class="flex-shrink-0">
-    <a href="#home" class="flex items-center space-x-3 scroll-link">
-      <img src="../images/logo.png" alt="RanSite Logo" class="w-10 h-10 object-contain rounded-lg" />
-      <span class="font-extrabold text-2xl">RanSite</span>
-    </a>
-  </div>
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <div class="flex-shrink-0">
+          <a href="#home" class="flex items-center space-x-3 scroll-link">
+            <img
+              src="../images/logo.png"
+              alt="RanSite Logo"
+              class="w-10 h-10 object-contain rounded-lg"
+            />
+            <span class="font-extrabold text-2xl">RanSite</span>
+          </a>
+        </div>
 
-  <div class="hidden md:flex items-center space-x-8">
-    <nav class="flex items-center space-x-6 text-sm font-medium text-gray-700">
-      <a href="#keunggulan" class="hover:text-primary-color transition">Advantages</a>
-      <a href="#layanan" class="hover:text-primary-color transition">Services</a>
-      <a href="#portfolio" class="hover:text-primary-color transition">Portfolio</a>
-      <a href="#pricelist" class="hover:text-primary-color transition">Pricing</a>
-    </nav>
+        <div class="hidden md:flex items-center space-x-8">
+          <nav
+            class="flex items-center space-x-6 text-sm font-medium text-gray-700"
+          >
+            <a href="#keunggulan" class="hover:text-primary-color transition"
+              >Advantages</a
+            >
+            <a href="#layanan" class="hover:text-primary-color transition"
+              >Services</a
+            >
+            <a href="#portfolio" class="hover:text-primary-color transition"
+              >Portfolio</a
+            >
+            <a href="#pricelist" class="hover:text-primary-color transition"
+              >Pricing</a
+            >
+          </nav>
 
-    <div class="flex items-center bg-gray-100/80 border border-gray-200 rounded-full p-1 shadow-inner">
-      <a href="../" onclick="localStorage.setItem('user_lang', 'id')" class="flex items-center space-x-1.5 px-2.5 py-1 text-gray-400 hover:text-primary-color transition group">
-        <img src="https://flagcdn.com/w20/id.png" class="w-4 h-auto grayscale group-hover:grayscale-0 transition" alt="ID">
-        <span class="text-[10px] font-bold">ID</span>
-      </a>
-      <div class="flex items-center space-x-1.5 bg-primary-color text-white px-2.5 py-1 rounded-full shadow-sm">
-        <img src="https://flagcdn.com/w20/gb.png" class="w-4 h-auto" alt="EN">
-        <span class="text-[10px] font-bold">EN</span>
+          <div
+            class="flex items-center bg-gray-100/80 border border-gray-200 rounded-full p-1 shadow-inner"
+          >
+            <a
+              href="../"
+              onclick="localStorage.setItem('user_lang', 'id')"
+              class="flex items-center space-x-1.5 px-2.5 py-1 text-gray-400 hover:text-primary-color transition group"
+            >
+              <img
+                src="https://flagcdn.com/w20/id.png"
+                class="w-4 h-auto grayscale group-hover:grayscale-0 transition"
+                alt="ID"
+              />
+              <span class="text-[10px] font-bold">ID</span>
+            </a>
+            <div
+              class="flex items-center space-x-1.5 bg-primary-color text-white px-2.5 py-1 rounded-full shadow-sm"
+            >
+              <img
+                src="https://flagcdn.com/w20/gb.png"
+                class="w-4 h-auto"
+                alt="EN"
+              />
+              <span class="text-[10px] font-bold">EN</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <a
+            href="https://wa.me/62895630211294?text=Hello%20RanSite%2C%20I'm%20interested%20in%20consulting%20about%20creating%20a%20website%20for%20my%20business.%20Please%20provide%20more%20information%2C%20thank%20you."
+            target="_blank"
+            class="hidden sm:inline-block bg-secondary-color text-gray-900 px-5 py-2 rounded-full text-sm font-bold hover:bg-amber-500 transition shadow-md"
+          >
+            Contact Us
+          </a>
+          <button
+            id="mobileBtn"
+            class="md:hidden text-third-color text-2xl p-2"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <div class="flex items-center space-x-3">
-    <a href="https://wa.me/62895630211294?text=Hello%20RanSite%2C%20I'm%20interested%20in%20consulting%20about%20creating%20a%20website%20for%20my%20business.%20Please%20provide%20more%20information%2C%20thank%20you." target="_blank" class="hidden sm:inline-block bg-secondary-color text-gray-900 px-5 py-2 rounded-full text-sm font-bold hover:bg-amber-500 transition shadow-md">
-      Contact Us
-    </a>
-    <button id="mobileBtn" class="md:hidden text-third-color text-2xl p-2">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-</div>
     </header>
 
     <div
       id="mobileMenu"
       class="fixed inset-0 bg-white/70 backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-6 text-lg font-semibold text-gray-800 transition-all duration-500 ease-in-out opacity-0 pointer-events-none transform -translate-y-full"
     >
-    <div class="flex justify-center w-full px-6 mb-10">
-  <div class="flex items-center bg-gray-100/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-1.5 w-full max-w-[280px] shadow-sm">
-    <a href="../" onclick="localStorage.setItem('user_lang', 'id')" class="flex flex-1 items-center justify-center space-x-3 py-3 text-gray-500 hover:text-primary-color transition-all">
-      <img src="https://flagcdn.com/w40/id.png" class="w-6 h-auto rounded-sm grayscale opacity-70" alt="ID">
-      <span class="text-sm font-semibold">Indonesia</span>
-    </a>
+      <div class="flex justify-center w-full px-6 mb-10">
+        <div
+          class="flex items-center bg-gray-100/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-1.5 w-full max-w-[280px] shadow-sm"
+        >
+          <a
+            href="../"
+            onclick="localStorage.setItem('user_lang', 'id')"
+            class="flex flex-1 items-center justify-center space-x-3 py-3 text-gray-500 hover:text-primary-color transition-all"
+          >
+            <img
+              src="https://flagcdn.com/w40/id.png"
+              class="w-6 h-auto rounded-sm grayscale opacity-70"
+              alt="ID"
+            />
+            <span class="text-sm font-semibold">Indonesia</span>
+          </a>
 
-    <div class="flex flex-1 items-center justify-center space-x-3 bg-primary-color text-white py-3 rounded-xl shadow-md transition-all">
-      <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-auto rounded-sm" alt="EN">
-      <span class="text-sm font-bold tracking-wide">English</span>
-    </div>
-  </div>
-</div>
+          <div
+            class="flex flex-1 items-center justify-center space-x-3 bg-primary-color text-white py-3 rounded-xl shadow-md transition-all"
+          >
+            <img
+              src="https://flagcdn.com/w40/gb.png"
+              class="w-6 h-auto rounded-sm"
+              alt="EN"
+            />
+            <span class="text-sm font-bold tracking-wide">English</span>
+          </div>
+        </div>
+      </div>
       <a
         href="#keunggulan"
         class="scroll-link hover:text-primary-color transition-all duration-300 hover:scale-110"
@@ -2070,7 +2122,11 @@
                   class="fas fa-quote-left text-secondary-yellow text-2xl mb-3 opacity-60"
                 ></i>
                 <p class="text-gray-700 italic mb-4 text-base">
-                  "Thank you for your cooperation. Our website, Mocraft3d.com, is running well and smoothly. Some people have started to check out our website. Thank you for helping us fulfill our digital needs. We hope we can continue our collaboration. 👍🏼 Continued success."
+                  "Thank you for your cooperation. Our website, Mocraft3d.com,
+                  is running well and smoothly. Some people have started to
+                  check out our website. Thank you for helping us fulfill our
+                  digital needs. We hope we can continue our collaboration. 👍🏼
+                  Continued success."
                 </p>
                 <div
                   class="flex items-center gap-4 pt-4 border-t border-gray-100 mt-auto"
@@ -2099,7 +2155,9 @@
                   class="fas fa-quote-left text-secondary-yellow text-2xl mb-3 opacity-60"
                 ></i>
                 <p class="text-gray-700 italic mb-4 text-base">
-                  "Our online store website is now running smoothly, with seamless payment integration. Our sales increased immediately after launch."
+                  "Our online store website is now running smoothly, with
+                  seamless payment integration. Our sales increased immediately
+                  after launch."
                 </p>
                 <div
                   class="flex items-center gap-4 pt-4 border-t border-gray-100 mt-auto"
@@ -2128,7 +2186,9 @@
                   class="fas fa-quote-left text-secondary-yellow text-2xl mb-3 opacity-60"
                 ></i>
                 <p class="text-gray-700 italic mb-4 text-base">
-                 "I was completely new to websites, but RanSite guided me from start to finish. Now my catering business is easier to find on Google."
+                  "I was completely new to websites, but RanSite guided me from
+                  start to finish. Now my catering business is easier to find on
+                  Google."
                 </p>
                 <div
                   class="flex items-center gap-4 pt-4 border-t border-gray-100 mt-auto"
@@ -2139,7 +2199,9 @@
                     B
                   </div>
                   <div>
-                    <h4 class="font-bold text-gray-900 text-sm">Mrs. Budiarti</h4>
+                    <h4 class="font-bold text-gray-900 text-sm">
+                      Mrs. Budiarti
+                    </h4>
                     <p class="text-xs text-accent-teal">Owner, Dapur Mama</p>
                   </div>
                 </div>
@@ -2155,7 +2217,9 @@
                   class="fas fa-quote-left text-secondary-yellow text-2xl mb-3 opacity-60"
                 ></i>
                 <p class="text-gray-700 italic mb-4 text-base">
-                  "The custom system we created for our internal office is running smoothly. It's really helped with the efficiency of our monthly reporting. Recommended!"
+                  "The custom system we created for our internal office is
+                  running smoothly. It's really helped with the efficiency of
+                  our monthly reporting. Recommended!"
                 </p>
                 <div
                   class="flex items-center gap-4 pt-4 border-t border-gray-100 mt-auto"
@@ -2761,7 +2825,7 @@
           mobileMenu.classList.remove(
             "opacity-0",
             "pointer-events-none",
-            "-translate-y-full"
+            "-translate-y-full",
           );
           mobileMenu.classList.add("opacity-100", "translate-y-0");
 
@@ -2774,7 +2838,7 @@
           mobileMenu.classList.add(
             "opacity-0",
             "pointer-events-none",
-            "-translate-y-full"
+            "-translate-y-full",
           );
 
           // Change back to bars icon
@@ -2791,7 +2855,7 @@
           mobileMenu.classList.add(
             "opacity-0",
             "pointer-events-none",
-            "-translate-y-full"
+            "-translate-y-full",
           );
           menuIcon.classList.remove("fa-times");
           menuIcon.classList.add("fa-bars");
@@ -2806,7 +2870,7 @@
           mobileMenu.classList.add(
             "opacity-0",
             "pointer-events-none",
-            "-translate-y-full"
+            "-translate-y-full",
           );
         });
       });
